@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hand Distance Measurement Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-section">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Enter your username">
+        <button onclick="login()">Login</button>
+    </div>
+    <div id="game-section" style="display: none;">
+        <h2>Welcome, <span id="display-username"></span>!</h2>
+        <button onclick="startGame()">Start Measurement</button>
+        <div id="measurement-area">
+            <!-- Replace with camera or canvas integration as needed -->
+            <p id="measurement-placeholder">Your hand distance will appear here.</p>
+        </div>
+        <button onclick="sendMeasurement()">Send Measurement</button>
+        <h3>Players</h3>
+        <ul id="player-list"></ul>
+        <h3>Measurements</h3>
+        <ul id="measurements-list"></ul>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
