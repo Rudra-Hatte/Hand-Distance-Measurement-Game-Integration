@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fafaff;
+    margin: 0;
+    padding: 0;
+}
+
+#login-section, #game-section {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.09);
+}
+
+h2, h3 {
+    color: #2b2c34;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+}
+
+button {
+    background: #6246ea;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 5px;
+    margin: 8px 2px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #4638c8;
+}
+
+#measurement-area {
+    margin: 18px 0;
+    padding: 12px;
+    background: #eaeaea;
+    border-radius: 5px;
+    min-height: 45px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ececec;
+}
