@@ -4,26 +4,68 @@
     <meta charset="UTF-8">
     <title>Hand Distance Measurement Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div id="login-section">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Enter your username">
-        <button onclick="login()">Login</button>
-    </div>
-    <div id="game-section" style="display: none;">
-        <h2>Welcome, <span id="display-username"></span>!</h2>
-        <button onclick="startGame()">Start Measurement</button>
-        <div id="measurement-area">
-            <!-- Replace with camera or canvas integration as needed -->
-            <p id="measurement-placeholder">Your hand distance will appear here.</p>
+    <div id="main-container">
+        <div id="login-section" class="card centered">
+            <h2>Sign In</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()" class="btn primary">Login</button>
+            <div id="login-error"></div>
         </div>
-        <button onclick="sendMeasurement()">Send Measurement</button>
-        <h3>Players</h3>
-        <ul id="player-list"></ul>
-        <h3>Measurements</h3>
-        <ul id="measurements-list"></ul>
-        <button onclick="logout()">Logout</button>
+        <div id="game-section" style="display: none;">
+            <div class="header-bar">
+                <span class="logo-title">✋ Distance Game</span>
+                <div class="user-info">
+                    <span id="display-username"></span>
+                    <button onclick="logout()" class="btn small">Logout</button>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="left-panel">
+                    <div class="measurement-box">
+                        <h3>Measurement</h3>
+                        <div id="measurement-area">
+                            <video id="video-feed" autoplay playsinline></video>
+                            <canvas id="canvas-feed" style="display:none;"></canvas>
+                            <p id="measurement-placeholder">Awaiting measurement...</p>
+                        </div>
+                        <div class="measurement-controls">
+                            <button onclick="startGame()" id="start-btn" class="btn primary">Start</button>
+                            <button onclick="captureMeasurement()" id="capture-btn" class="btn" disabled>Capture</button>
+                            <button onclick="sendMeasurement()" id="send-btn" class="btn" disabled>Send</button>
+                        </div>
+                        <div id="current-measurement"></div>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="panel-section">
+                        <h4>Players <span id="player-count"></span></h4>
+                        <ul id="player-list" class="scroll-list"></ul>
+                    </div>
+                    <div class="panel-section">
+                        <h4>Leaderboard</h4>
+                        <ul id="leaderboard-list" class="scroll-list"></ul>
+                    </div>
+                    <div class="panel-section">
+                        <h4>Recent Measurements</h4>
+                        <ul id="measurements-list" class="scroll-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div id="game-messages"></div>
+        </div>
+        <div id="modal-overlay" style="display:none;">
+            <div id="modal-window">
+                <span id="modal-msg"></span>
+                <button onclick="closeModal()" class="btn">Close</button>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
